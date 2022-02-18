@@ -4,11 +4,24 @@ import java.math.BigDecimal;
 
 public class Star3 { //o singura clasa poate fi publica
 
-    private String starDescription; //parametrii clasei pe care ai vom defini pentru fiecare obiect instantiat cu valorile proprii
-    private int diametre;
-    private int satellites;
-    private BigDecimal mass; // clic pe BigDecimal & ctrl & space shortcut pentru a afla variantele pt BigDecimal
-    private SmallPlanet smallPlanet;
+    private String starDescription;                    // <====== VARIABILELE DE INSTANT SUNT PROPRIETATILE CLASEI
+    //parametrii clasei pe care ai vom defini pentru   //  care nu sunt definite cu static si in acelasi timp private
+    // fiecare obiect instantiat cu valorile proprii
+    private int diametre;                              // <====== VARIABILELE DE INSTANT SUNT PROPRIETATILE CLASEI
+    private int satellites;                            // <====== VARIABILELE DE INSTANT SUNT PROPRIETATILE CLASEI
+    private BigDecimal mass;                           // <====== VARIABILELE DE INSTANT SUNT PROPRIETATILE CLASEI
+    // clic pe BigDecimal & ctrl & space shortcut pentru
+    // a afla variantele pt BigDecimal
+    private SmallPlanet smallPlanet;                   // <====== VARIABILELE DE INSTANT SUNT PROPRIETATILE CLASEI
+
+    public static final boolean MILKYWAYSTAR = true;   // <====== VARIABILA DE CLASA
+    //asa se declara o constanta
+    /*
+    daca vrem sa o accesam in afara clase = public
+    static ia aceeasi valoare pentru toate obiectele clasei
+     final este o valoare constanta(finala) si nu mai poate fi modificat
+     tipul de data boolean si CONSTANTELE SE SCRIU CU LITERE MARI INTEGRAL
+    */
 
     /*  public Star3() {} //constructorul implicit default
 
@@ -82,7 +95,7 @@ public class Star3 { //o singura clasa poate fi publica
     }
 
     public int getSatellites() {
-        return satellites;
+        return this.satellites;
     }
 
     public void setSatellites(int satellites) {
@@ -90,16 +103,34 @@ public class Star3 { //o singura clasa poate fi publica
     }
 
     public BigDecimal getMass() {
-        return mass;
+        return this.mass;
     }
 
     public void setMass(BigDecimal mass) {
         this.mass = mass;
+    }
+
+    public void setSmallPlanet(SmallPlanet smallPlanet/*parametrul metodei set*/) {
+        this.smallPlanet/*proprietatea clasei Star3,variabila de instanta*/ = smallPlanet;
+    }
+
+    public SmallPlanet getSmallPlanet() {
+        return smallPlanet;
+    }
+
+    //DECLARAREA UNEI METODE
+    public String computeSmallPlanetLocation(SmallPlanet smallPlanet, int location){
+        String planetLocation = this.starDescription + smallPlanet.getPlanetName() + location; //<=== planetlocation este o VARIABILA LOCALA
+        return planetLocation;                                                                             //<=== EXISTA ATATA TIMP CAT ESTE APELATA METODA COMPUTESMALLPLANETLOCATION
     }
 }
 
 // Clasa SmallPlanet nu poate fi publica,doar una poate fi pubica
 class SmallPlanet { //sa creat o alta clasa cu o singura proprietate
     private String planetName;  //ea poate fi folosita ca proprietate in clasa Star de mai sus dar si invers
+
+    public String getPlanetName() {
+        return this.planetName;
+    }
 }
 
