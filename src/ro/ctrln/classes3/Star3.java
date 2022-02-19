@@ -117,20 +117,6 @@ public class Star3 { //o singura clasa poate fi publica
     public SmallPlanet getSmallPlanet() {
         return smallPlanet;
     }
-
-    //DECLARAREA UNEI METODE
-    public String computeSmallPlanetLocation(SmallPlanet smallPlanet, int location){
-        String planetLocation = this.starDescription + smallPlanet.getPlanetName() + location; //<=== planetlocation este o VARIABILA LOCALA
-        return planetLocation;                                                                             //<=== EXISTA ATATA TIMP CAT ESTE APELATA METODA COMPUTESMALLPLANETLOCATION
-    }
 }
 
-// Clasa SmallPlanet nu poate fi publica,doar una poate fi pubica
-class SmallPlanet { //sa creat o alta clasa cu o singura proprietate
-    private String planetName;  //ea poate fi folosita ca proprietate in clasa Star de mai sus dar si invers
-
-    public String getPlanetName() {
-        return this.planetName;
-    }
-}
 
