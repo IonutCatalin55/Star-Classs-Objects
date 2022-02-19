@@ -15,17 +15,17 @@ public class StarUsage {
         star3.setDiametre(1000);
         star3.setSatellites(15);
         star3.setMass(new BigDecimal(2500)); //<=== parametri cu tipuri de date primitive se transmit prin valoare
-        star3.setSmallPlanet(new SmallPlanet()); //<=== proprietatile care au tipuri de date clase sunt transmise prin referinta
+        star3.setSmallPlanet(new SmallPlanet("stea misto")); //<=== proprietatile care au tipuri de date clase sunt transmise prin referinta
 
-        System.out.println(star3);// afiseaza ceva ce nu putem citi avem nevooe de met. toString
+        System.out.println("Obiectul star3 " + star3);// afiseaza ceva ce nu putem citi avem nevooe de met. toString
 
         // definirea de obiect cu constructorul star dar care primeste 4 parametri
         Star3 mars = new Star3("Aceasta este steaua Mars ", 4000, 6, new BigDecimal(400));
 
         //A 5 propietate a clase Star3 nu este definita in acest constructor
         // dar se pate defini in interiorul obiectului nostru Ex:
-        mars.setSmallPlanet(new SmallPlanet());
-        System.out.println(mars);
+        mars.setSmallPlanet(new SmallPlanet("marte misto"));
+        System.out.println("Obiectul mars " + mars);
 
         SmallPlanet star3Planet = new SmallPlanet(); //obiect creat pt obiectul star3
         star3Planet.setPlanetName("Numele planetei din jurul stelei ");

@@ -1,6 +1,7 @@
 package ro.ctrln.classes3;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Star3 { //o singura clasa poate fi publica
 
@@ -116,6 +117,30 @@ public class Star3 { //o singura clasa poate fi publica
 
     public SmallPlanet getSmallPlanet() {
         return smallPlanet;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Star3 star3 = (Star3) o;
+        return diametre == star3.diametre && satellites == star3.satellites && starDescription.equals(star3.starDescription) && mass.equals(star3.mass) && smallPlanet.equals(star3.smallPlanet);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(starDescription, diametre, satellites, mass, smallPlanet);
+    }
+
+    @Override
+    public String toString() {
+        return "Star3{" +
+                "starDescription='" + starDescription + '\'' +
+                ", diametre=" + diametre +
+                ", satellites=" + satellites +
+                ", mass=" + mass +
+                ", smallPlanet=" + smallPlanet +
+                '}';
     }
 }
 
